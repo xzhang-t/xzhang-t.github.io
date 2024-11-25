@@ -4,7 +4,7 @@ collection: publications
 category: conferences
 permalink: /publication/iccv24
 excerpt: ''
-date: 2024-10
+date: 2024-10-01
 venue: 'Proceedings of the IEEE/CVF International Conference on Computer Vision'
 paperurl: 'https://openaccess.thecvf.com/content/ICCV2023/papers/Zhang_Unsupervised_Surface_Anomaly_Detection_with_Diffusion_Probabilistic_Model_ICCV_2023_paper.pdf'
 citation: '@inproceedings{zhang2023unsupervised,
