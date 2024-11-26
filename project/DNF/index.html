@@ -347,97 +347,28 @@ Our dictionary-based representation well balances fidelity, contiguity and compr
           </div>
         </div>
         <!--/ Paper video. -->
-
-        <!-- Method Overview. -->
-      <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Overview</h2>
-        <div class="publication-video">
-      
-          <video id="represent" autoplay muted loop playsinline height="100%">
-            <source src="./static/video/rep.mp4" type="video/mp4">
-          </video>
-      
-        </div>
-        <div class="content has-text-justified">
-          <p>
-            We first pre-train disentangled shape and motion MLPs with per-instance latents. 
-    We then decompose the pre-trained MLPs using SVD to conduct dictionary-based fine-tuning of the singular values for each train instance, 
-            in order to more expressively capture local object detail. We then obtain for each train instance its latent shape and motion codes as well as coefficient vectors, 
-            along with a globally shared dictionary. This effectively balances quality, contiguity and compression in the learned representation space. 
-            
-<!--             Given a sequence of sparse and noisy point clouds as inputs \(\{\mathbf{P}^t\}_{t=1}^{T}\), 
-            Motion2VecSets outputs a continuous mesh sequence \(\{\mathcal{M}^t\}_{t=1}^{T}\). 
-            The initial input frame \(\mathbf{P}^1\) (top left) is used as condition in 
-            the \(\textcolor[RGB]{0, 32, 96}{\mathbf{Shape\text{ }Vector\text{ }Set\text{ }Diffusion}}\), 
-            yielding denoised shape codes \(\mathcal{S}\) for reconstructing the geometry of the reference frame 
-            \(\mathcal{M}^1\) (top right). Concurrently, the subsequent input frames \(\{\mathbf{P}^t\}_{t=2}^{T}\) 
-            (bottom left) are utilized in the 
-            \(\textcolor[RGB]{56, 87, 35}{\mathbf{Synchronized\text{ }Deformation\text{ }Vector\text{ }Sets\text{ }Diffusion}}\) 
-            to produce denoised deformation codes \(\{\mathcal{D}^t\}_{t=2}^{T}\), where each latent 
-            set \(\mathcal{D}^t\) encodes the deformation from the reference frame \(\mathcal{M}^1\) 
-            to each subsequent frame \(\mathcal{M}^t\). -->
-            
-            
-          </p>
-        </div>
-      </div>
-    </div>
-
-        <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths" style="position: relative; display: inline;">
-        <img src="./static/images/pipeline.png" style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;">
-        <video style="position:absolute;bottom:1.5%; left:10.4%; width:16.3%;" autoplay  muted loop  playsinline>
-          <source src="./static/videos/pipeline/output_video.mp4"
-                  type="video/mp4">
-        </video>   
-        <video style="position:absolute;bottom:1.5%; left:42.4%; width:16.3%;" autoplay  muted loop  playsinline>
-          <source src="./static/videos/pipeline/1.mp4"
-                  type="video/mp4">
-        </video>   
-        <video style="position:absolute;bottom:1.5%; left:61.9%; width:16.3%;" autoplay  muted loop  playsinline>
-          <source src="./static/videos/pipeline/2.mp4"
-                  type="video/mp4">
-        </video>   
-        <video style="position:absolute;bottom:1.5%; left:81.4%; width:16.3%;" autoplay  muted loop  playsinline>
-          <source src="./static/videos/pipeline/3.mp4"
-                  type="video/mp4">
-        </video>   
-      </div>
-    </div> -->
-        <!--/ Method Overview. -->
-
       </div>
   </section>
 
   <section class="section">
     <div class="container is-max-desktop has-text-centered">
       <h2 class="title is-3">Overview</h2>
-      <div class="content has-text-justified">
-        <!-- <p>
-            4D Reconstruction from Partial Scans.
-          </p> -->
-      </div>
 
 
-      <img src="overview.jpg" style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;">
+<!--       <img src="overview.jpg" style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;"> -->
+      <video id="represent" autoplay muted loop playsinline height="100%">
+            <source src="./static/video/rep.mp4" type="video/mp4">
+          </video>
+      
 
       <div class="content has-text-justified">
         <p>
-          Given a sequence of sparse and noisy point clouds as inputs \(\{\mathbf{P}^t\}_{t=1}^{T}\),
-          Motion2VecSets outputs a continuous mesh sequence \(\{\mathcal{M}^t\}_{t=1}^{T}\).
-          The initial input frame \(\mathbf{P}^1\) (top left) is used as condition in
-          the \(\textcolor[RGB]{0, 32, 96}{\mathbf{Shape\text{ }Vector\text{ }Set\text{ }Diffusion}}\),
-          yielding denoised shape codes \(\mathcal{S}\) for reconstructing the geometry of the reference frame
-          \(\mathcal{M}^1\) (top right). Concurrently, the subsequent input frames \(\{\mathbf{P}^t\}_{t=2}^{T}\)
-          (bottom left) are utilized in the
-          \(\textcolor[RGB]{56, 87, 35}{\mathbf{Synchronized\text{ }Deformation\text{ }Vector\text{ }Sets\text{
-          }Diffusion}}\)
-          to produce denoised deformation codes \(\{\mathcal{D}^t\}_{t=2}^{T}\), where each latent
-          set \(\mathcal{D}^t\) encodes the deformation from the reference frame \(\mathcal{M}^1\)
-          to each subsequent frame \(\mathcal{M}^t\).
+          We first pre-train disentangled shape and motion MLPs with per-instance latents. 
+    We then decompose the pre-trained MLPs using SVD to conduct dictionary-based fine-tuning of the singular values for each train instance, 
+            in order to more expressively capture local object detail. We then obtain for each train instance its latent shape and motion codes as well as coefficient vectors, 
+            along with a globally shared dictionary. This effectively balances quality, contiguity and compression in the learned representation space. 
         </p>
-        <div class="columns is-centered has-text-centered">
+<!--         <div class="columns is-centered has-text-centered">
           <img src="./static/images/pipeline.png"
             style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;">
           <video style="position:absolute; bottom:1.8%; left:8.04%; width:17.5%;" autoplay muted loop playsinline>
@@ -452,7 +383,7 @@ Our dictionary-based representation well balances fidelity, contiguity and compr
           <video style="position:absolute;bottom:1.8%; left:82.9%; width:17.5%;" autoplay muted loop playsinline>
             <source src="./static/videos/pipeline/3.mp4" type="video/mp4">
           </video>
-        </div>
+        </div> -->
 
       </div>
   </section>
