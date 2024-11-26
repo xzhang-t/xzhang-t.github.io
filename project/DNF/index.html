@@ -340,7 +340,7 @@ Our dictionary-based representation well balances fidelity, contiguity and compr
         <div class="column is-four-fifths">
           <h2 class="title is-3">Video</h2>
           <div class="publication-video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/VXI3y2o0SqY?si=-EycdfJHUyrZgWlT"
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/"
               title="YouTube video player" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen></iframe>
@@ -352,11 +352,19 @@ Our dictionary-based representation well balances fidelity, contiguity and compr
         <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Overview</h2>
-        <img src="overview.png" style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;">
+<!--         <img src="overview.png" style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;"> -->
+        <video id="represent" autoplay muted loop playsinline height="100%">
+            <source src="./static/video/rep.mp4" type="video/mp4">
+          </video>
       
         <div class="content has-text-justified">
           <p>
-            Given a sequence of sparse and noisy point clouds as inputs \(\{\mathbf{P}^t\}_{t=1}^{T}\), 
+            We first pre-train disentangled shape and motion MLPs with per-instance latents. 
+    We then decompose the pre-trained MLPs using SVD to conduct dictionary-based fine-tuning of the singular values for each train instance, 
+            in order to more expressively capture local object detail. We then obtain for each train instance its latent shape and motion codes as well as coefficient vectors, 
+            along with a globally shared dictionary. This effectively balances quality, contiguity and compression in the learned representation space. 
+            
+<!--             Given a sequence of sparse and noisy point clouds as inputs \(\{\mathbf{P}^t\}_{t=1}^{T}\), 
             Motion2VecSets outputs a continuous mesh sequence \(\{\mathcal{M}^t\}_{t=1}^{T}\). 
             The initial input frame \(\mathbf{P}^1\) (top left) is used as condition in 
             the \(\textcolor[RGB]{0, 32, 96}{\mathbf{Shape\text{ }Vector\text{ }Set\text{ }Diffusion}}\), 
@@ -366,7 +374,9 @@ Our dictionary-based representation well balances fidelity, contiguity and compr
             \(\textcolor[RGB]{56, 87, 35}{\mathbf{Synchronized\text{ }Deformation\text{ }Vector\text{ }Sets\text{ }Diffusion}}\) 
             to produce denoised deformation codes \(\{\mathcal{D}^t\}_{t=2}^{T}\), where each latent 
             set \(\mathcal{D}^t\) encodes the deformation from the reference frame \(\mathcal{M}^1\) 
-            to each subsequent frame \(\mathcal{M}^t\).
+            to each subsequent frame \(\mathcal{M}^t\). -->
+            
+            
           </p>
         </div>
       </div>
