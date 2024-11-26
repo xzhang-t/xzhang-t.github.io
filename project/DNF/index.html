@@ -103,9 +103,9 @@
 
             <div class="is-size-5 publication-authors">
 <!--               <span style="font-size: medium;">* Equal Contribution</span> </span>  -->
-              <span style="font-size: medium;">#
-                Corresponding Author</span>
-              <br>
+<!--               <span style="font-size: medium;">#
+                Corresponding Author</span> -->
+<!--               <br> -->
               <span class="author-block"><sup>1</sup>Technical University of Munich</span>
               </p>
               <span class="author-block"><sup>2</sup>Tsinghua University</span>
@@ -172,10 +172,9 @@
         </video>
       -->
         <!-- <h2 class="subtitle has-text-centered" style="margin-top: 10px;">
-        We present <b style="background: -webkit-linear-gradient(0deg, rgba(0,70,255,1) 0%, rgba(128,0,255,1) 50%, rgba(122,0,122,1) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Motion2VecSets</b>, a 4D diffusion model for dynamic surface reconstruction from sparse, noisy, or partial <b style="color: rgba(108, 198, 111, 1)">point cloud sequences</b>. 
-        Compared to the existing state-of-the-art method <b style="color: rgba(128, 128, 128, 1)">CaDeX</b>, our method can reconstruct more plausible non-rigid object surfaces with complicated structures and achieve more robust motion tracking. 
+        We propose DNF, a new dictionary-based representation for the unconditional generation of 4D deforming shapes, with a transformer-based diffusion model. Our method is capable of generating motions with superior shape quality and temporal consistency.
       </h2> -->
-        <div class="is-centered" style="width: 80%; margin: auto;">
+<!--         <div class="is-centered" style="width: 80%; margin: auto;">
           <div class="columns is-centered">
             <div class="column">
               <p style="text-align: center; font-size: larger;"> <b style="color: rgba(108, 198, 111, 1)">Input</b> </p>
@@ -217,7 +216,7 @@
             </div>
 
 
-          </div>
+          </div> -->
           <hr class="dashed" style="margin-top: -10px;">
           <img src="x22.jpg" style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;">
           <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
@@ -327,26 +326,12 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              We introduce Motion2VecSets, a 4D diffusion model for dynamic surface reconstruction from point cloud
-              sequences.
-              While existing state-of-the-art methods have demonstrated success in reconstructing non-rigid objects
-              using neural field representations, conventional feed-forward networks encounter challenges with ambiguous
-              observations from noisy, partial, or sparse point clouds.
-              To address these challenges, we introduce a diffusion model that explicitly learns the shape and motion
-              distribution of non-rigid objects through an iterative denoising process of compressed latent
-              representations. The diffusion-based prior enables more plausible and probabilistic reconstructions when
-              handling ambiguous inputs.
-              We parameterize 4D dynamics with latent vector sets instead of using a global latent. This novel 4D
-              representation allows us to learn local surface shape and deformation patterns, leading to more accurate
-              non-linear motion capture and significantly improving generalizability to unseen motions and identities.
-              For more temporal-coherent object tracking, we synchronously denoise deformation latent sets and exchange
-              information across multiple frames.
-              To avoid the computational overhead, we design an interleaved space and time attention block to
-              alternately aggregate deformation latents along spatial and temporal domains.
-              Extensive comparisons against the state-of-the-art methods demonstrate the superiority of our
-              Motion2VecSets in 4D reconstruction from various imperfect observations, notably achieving a 19%
-              improvement in Intersection over Union (IoU) compared to CaDex for reconstructing unseen individuals from
-              sparse point clouds on the DeformingThings4D-Animals dataset.
+              While remarkable success has been achived through diffusion-based 3D generative models for shapes, 4D generative modeling remains challenging due to the complexity of object deformations over time. 
+We propose DNF, a new 4D representation for unconditional generative modeling that efficiently models deformable shapes with disentangled shape and motion while capturing high-fidelity details in the deforming objects. 
+To achieve this, we propose a dictionary learning approach to disentangle 4D motion from shape as neural fields.
+Both shape and motion are represented as learned latent spaces, where each deformable shape is represented by its shape and motion global latent codes, shape-specific coefficient vectors, and shared dictionary information. 
+This captures both shape-specific detail and global shared information in the learned dictionary. 
+Our dictionary-based representation well balances fidelity, contiguity and compression -- combined with a transformer-based diffusion model, our method is able to generate effective, high-fidelity 4D animations. 
             </p>
           </div>
         </div>
