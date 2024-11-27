@@ -367,24 +367,26 @@ Our dictionary-based representation well balances fidelity, contiguity and compr
             in order to more expressively capture local object detail. We then obtain for each train instance its latent shape and motion codes as well as coefficient vectors, 
             along with a globally shared dictionary. This effectively balances quality, contiguity and compression in the learned representation space. 
         </p>
-<!--         <div class="columns is-centered has-text-centered">
-          <img src="./static/images/pipeline.png"
-            style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;">
-          <video style="position:absolute; bottom:1.8%; left:8.04%; width:17.5%;" autoplay muted loop playsinline>
-            <source src="./static/videos/pipeline/output_video.mp4" type="video/mp4">
-          </video>
-          <video style="position:absolute;bottom:1.8%; left:41.7%; width:17.5%;" autoplay muted loop playsinline>
-            <source src="./static/videos/pipeline/1.mp4" type="video/mp4">
-          </video>
-          <video style="position:absolute;bottom:1.8%; left:62.3%; width:17.5%;" autoplay muted loop playsinline>
-            <source src="./static/videos/pipeline/2.mp4" type="video/mp4">
-          </video>
-          <video style="position:absolute;bottom:1.8%; left:82.9%; width:17.5%;" autoplay muted loop playsinline>
-            <source src="./static/videos/pipeline/3.mp4" type="video/mp4">
-          </video>
-        </div> -->
 
       </div>
+
+      <div class="publication-video">
+      <video id="represent" autoplay muted loop playsinline height="100%">
+            <source src="./static/video/diff.mp4" type="video/mp4">
+          </video>
+      </div>
+
+      <div class="content has-text-justified">
+        <p>
+          Training and generation of our DNF for unconditional 4D synthesis.
+    We employ transformer-based diffusion models to model the $\boldsymbol{\sigma}$ that modulate the shape and motion MLPs, along with shape and motion codes. At inference time, new samples can then be decoded to shape and motion to form a 4D deforming sequence.
+        </p>
+
+      </div>
+
+      
+
+      
   </section>
 
 
