@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="DNF: Unconditional 4D Generation with Dictionary-based Neural Fields">
+  <meta name="keywords" content="4D Generation, Diffusion Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DNF: Unconditional 4D Generation with Dictionary-based Neural Fields</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.ico">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://xzhang-t.github.io/">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+
+<!--         <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://vveicao.github.io/projects/Motion2VecSets/">
+              Motion2VecSets
+            </a>
+            <a class="navbar-item" href="https://hk-zh.github.io/p-csg-plus/">
+              P-CSG
+            </a>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">DNF: Unconditional 4D Generation with Dictionary-based Neural Fields</h1>
+              <h3 class="subtitle is-2"><b><i>CVPR 2025 (Oral)</i></b></h3>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://xzhang-t.github.io">Xinyi Zhang</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://naiqili.github.io/">Naiqi Li</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.professoren.tum.de/en/dai-angela">Angela Dai</a><sup>1</sup>,</span>
+<!--               <span class="author-block">
+                <a href="http://niessnerlab.org/members/matthias_niessner/profile.html">Matthias
+                  Nießner</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://tangjiapeng.github.io">Jiapeng Tang</a><sup>1#</sup> -->
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+<!--               <span style="font-size: medium;">* Equal Contribution</span> </span>  -->
+<!--               <span style="font-size: medium;">#
+                Corresponding Author</span> -->
+<!--               <br> -->
+              <span class="author-block"><sup>1</sup>Technical University of Munich</span>
+              </p>
+              <span class="author-block"><sup>2</sup>Tsinghua University</span>
+              <!-- <p> 
+            </p>
+            <span class="author-block"><sup>2</sup>King Abdullah University of Science and Technology</span> -->
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+<!--                 <span class="link-block">
+                  <a href="https://arxiv.org/abs/2412.05161"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span> -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2412.05161" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <span class="link-block">
+                  <a href="https://www.youtube.com/watch?v=l1UhJmTbKIo"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/xzhang-t/DNF"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <!--
+        <video id="teaser" autoplay muted loop playsinline height="100%">
+          <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/teaser.mp4"
+                  type="video/mp4">
+        </video>
+      -->
+        <!-- <h2 class="subtitle has-text-centered" style="margin-top: 10px;">
+        We propose DNF, a new dictionary-based representation for the unconditional generation of 4D deforming shapes, with a transformer-based diffusion model. Our method is capable of generating motions with superior shape quality and temporal consistency.
+      </h2> -->
+<!--         <div class="is-centered" style="width: 80%; margin: auto;">
+          <div class="columns is-centered">
+            <div class="column">
+              <p style="text-align: center; font-size: larger;"> <b style="color: rgba(108, 198, 111, 1)">Input</b> </p>
+              <video id="completion-bed-partial" autoplay muted loop playsinline height="100%">
+                <source src="./static/videos/teaser/moose_new/input.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column">
+              <p style="text-align: center; font-size: larger;"> <b style="color: rgba(128, 128, 128, 1)">CaDeX</b> </p>
+              <video id="completion-bed-ours-1" autoplay muted loop playsinline height="100%">
+                <source src="./static/videos/teaser/moose_new/cadex.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column">
+              <p style="text-align: center; font-size: larger;"> <b
+                  style="background: -webkit-linear-gradient(0deg, rgba(0,70,255,1) 0%, rgba(128,0,255,1) 50%, rgba(122,0,122,1) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Motion2VecSets</b>
+              </p>
+              <video id="completion-bed-ours-1" autoplay muted loop playsinline height="100%">
+                <source src="./static/videos/teaser/moose_new/sync.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="columns is-centered">
+            <div class="column">
+              <video id="completion-bed-partial" autoplay muted loop playsinline height="100%">
+                <source src="./static/videos/teaser/rabbit_new/input.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column">
+              <video id="completion-bed-atiss-1" autoplay muted loop playsinline height="100%">
+                <source src="./static/videos/teaser/rabbit_new/cadex.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="column">
+              <video id="completion-bed-atiss-2" autoplay muted loop playsinline height="100%">
+                <source src="./static/videos/teaser/rabbit_new/sync.mp4" type="video/mp4">
+              </video>
+
+            </div>
+
+
+          </div> -->
+<!--           <hr class="dashed" style="margin-top: -10px;"> -->
+<!--           <img src="x22.jpg" style="width:100%; margin-right:auto; margin-left:auto; margin-top:auto;"> -->
+          <video id="teaser" autoplay muted loop playsinline height="100%">
+            <source src="./static/video/Teaser.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
+            We propose DNF, a dictionary-based representation for the unconditional generation of 4D deforming shapes, with a transformer-based diffusion model. Our method is capable of generating motions with superior shape quality and temporal consistency.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title has-text-centered">Unconditional Scene Synthesis</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-Bedroom-2719">
+          <video poster="" id="Bedroom-2719" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/uncond/Bedroom-2719_8_130.mkv"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-LivingRoom-50084">
+          <video poster="" id="LivingRoom-50084" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/uncond/LivingRoom-50084_76_718.mkv"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-LivingRoom-68491">
+          <video poster="" id="LivingRoom-68491" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/uncond/LivingRoom-68491_81_650.mkv"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-SecondBedroom-35821">
+          <video poster="" id="SecondBedroom-35821" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/uncond/SecondBedroom-35821_15_393.mkv"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-LivingRoom-71071-485">
+          <video poster="" id="LivingRoom-71071-485" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/uncond/LivingRoom-71071_8_485.mkv"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-LivingRoom-71071-997">
+          <video poster="" id="LivingRoom-71071-997" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/uncond/LivingRoom-71071_8_997.mkv"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-SecondBedroom-52584">
+          <video poster="" id="SecondBedroom-52584" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/uncond/SecondBedroom-52584_24_964.mkv"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-LivingRoom-88425">
+          <video poster="" id="LivingRoom-88425" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/uncond/LivingRoom-88425_55_025.mkv"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-LivingDiningRoom-34678">
+          <video poster="" id="LivingDiningRoom-34678" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/uncond/LivingDiningRoom-34678_2_215.mkv"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-LivingDiningRoom-86944">
+          <video poster="" id="LivingDiningRoom-86944" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/uncond/LivingDiningRoom-86944_84_103.mkv"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-LivingDiningRoom-109935">
+          <video poster="" id="LivingDiningRoom-109935" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/uncond/LivingDiningRoom-109935_48_096.mkv"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-LivingDiningRoom-163914">
+          <video poster="" id="LivingDiningRoom-163914" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/uncond/LivingDiningRoom-163914_165_492.mkv"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop" style="margin-bottom:-25px;">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div>
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              While remarkable success has been achived through diffusion-based 3D generative models for shapes, 4D generative modeling remains challenging due to the complexity of object deformations over time. 
+We propose DNF, a new 4D representation for unconditional generative modeling that efficiently models deformable shapes with disentangled shape and motion while capturing high-fidelity details in the deforming objects. 
+To achieve this, we propose a dictionary learning approach to disentangle 4D motion from shape as neural fields.
+Both shape and motion are represented as learned latent spaces, where each deformable shape is represented by its shape and motion global latent codes, shape-specific coefficient vectors, and shared dictionary information. 
+This captures both shape-specific detail and global shared information in the learned dictionary. 
+Our dictionary-based representation well balances fidelity, contiguity and compression -- combined with a transformer-based diffusion model, our method is able to generate effective, high-fidelity 4D animations. 
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Video</h2>
+          <div class="publication-video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/l1UhJmTbKIo?si=L3HQoSZNh1LgMTLJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+        <!--/ Paper video. -->
+      </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop has-text-centered">
+      <h2 class="title is-3">Overview</h2>
+      <div class="publication-video">
+      <video id="represent" autoplay muted loop playsinline height="100%">
+            <source src="./static/video/rep.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+
+      <div class="content has-text-justified">
+        <p>
+          We first pre-train disentangled shape and motion MLPs with per-instance latents. 
+    We then decompose the pre-trained MLPs using SVD to conduct dictionary-based fine-tuning of the singular values for each train instance, 
+            in order to more expressively capture local object detail. We then obtain for each train instance its latent shape and motion codes as well as coefficient vectors, 
+            along with a globally shared dictionary. This effectively balances quality, contiguity and compression in the learned representation space. 
+        </p>
+
+      </div>
+
+      <div class="publication-video">
+      <video id="represent" autoplay muted loop playsinline height="100%">
+            <source src="./static/video/diff.mp4" type="video/mp4">
+          </video>
+      </div>
+
+      <div class="content has-text-justified">
+        <p>
+          Training and generation of our DNF for unconditional 4D synthesis.
+    We employ transformer-based diffusion models to model the \(\boldsymbol{\sigma}\) that modulate the shape and motion MLPs, along with shape and motion codes. At inference time, new samples can then be decoded to shape and motion to form a 4D deforming sequence.
+        </p>
+
+      </div>
+
+      
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop has-text-centered">
+
+      <!-- Scene Completion. -->
+      <h2 class="title is-3">Unconditional Motion Generation</h2>
+      <div class="publication-video">
+      <video id="represent" autoplay muted loop playsinline height="70%">
+            <source src="./static/video/compare.mp4" type="video/mp4">
+          </video>
+      </div>
+    </div>
+  </section>
+
+    
+
+  <section class="section">
+    <div class="container is-max-desktop has-text-centered">
+      <h2 class="title is-3">Generation for Unseen Species</h2>
+       <div class="publication-video">
+      <video id="represent" autoplay muted loop playsinline height="70%">
+            <source src="./static/video/unseen.mp4" type="video/mp4">
+          </video>
+      </div>
+    </div>
+  </section>
+
+
+<section class="section">
+    <div class="container is-max-desktop has-text-centered">
+      <h2 class="title is-3">More Results</h2>
+      <div class="publication-video">
+      <video id="represent" autoplay muted loop playsinline height="70%">
+            <source src="./static/video/result1.mp4" type="video/mp4">
+          </video>
+      </div>
+      <div class="publication-video">
+      <video id="represent" autoplay muted loop playsinline height="70%">
+            <source src="./static/video/result2.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@misc{zhang2024dnfunconditional4dgeneration,
+      title={DNF: Unconditional 4D Generation with Dictionary-based Neural Fields}, 
+      author={Xinyi Zhang and Naiqi Li and Angela Dai},
+      year={2024},
+      eprint={2412.05161},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2412.05161}, 
+  }</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="#">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="#" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              Website source code is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 获取所有视频元素
+    const videos = document.querySelectorAll('.sparse_0');
+
+    // 获取进度条
+    const videoProgress = document.getElementById('video-progress');
+
+    // 更新进度条位置
+    function updateProgressBar() {
+      const progressValue = (videos[0].currentTime / videos[0].duration) * 100;
+      videoProgress.value = progressValue;
+    }
+
+    // 当任何一个视频时间更新时，更新进度条
+    videos.forEach(video => {
+      video.addEventListener('timeupdate', updateProgressBar);
+    });
+
+    // 当按下进度条时，暂停所有视频
+    videoProgress.addEventListener('mousedown', function () {
+      videos.forEach(video => video.pause());
+    });
+
+    // 当松开进度条时，继续播放所有视频
+    videoProgress.addEventListener('mouseup', function () {
+      videos.forEach(video => video.play());
+    });
+
+    // 当进度条值改变时（例如拖动进度条），更新所有视频的当前时间
+    videoProgress.addEventListener('input', function () {
+      const seekTime = (videoProgress.value / 100) * videos[0].duration;
+      videos.forEach(video => (video.currentTime = seekTime));
+    });
+
+  </script>
+
+
+
+
+</body>
+
+</html>
