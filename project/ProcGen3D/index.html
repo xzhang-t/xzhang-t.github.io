@@ -84,11 +84,13 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">DNF: Unconditional 4D Generation with Dictionary-based Neural Fields</h1>
-              <h3 class="subtitle is-2"><b><i>CVPR 2025 (Oral)</i></b></h3>
+            <h1 class="title is-1 publication-title">ProcGen3D: Learning Neural Procedural Graphs for Image-to-3D Reconstruction</h1>
+<!--              <h3 class="subtitle is-2"><b><i>CVPR 2025 (Oral)</i></b></h3>-->
             <div class="is-size-5 publication-authors">
               <span class="author-block">
                 <a href="https://xzhang-t.github.io">Xinyi Zhang</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://daoyig.github.io/">Daoyi Gao</a><sup>1</sup>,</span>
               <span class="author-block">
                 <a href="https://naiqili.github.io/">Naiqi Li</a><sup>2</sup>,</span>
               <span class="author-block">
@@ -145,14 +147,14 @@
                   </a>
                 </span>
                 <!-- Code Link. -->
-                <span class="link-block">
-                  <a href="https://github.com/xzhang-t/DNF"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
+<!--                <span class="link-block">-->
+<!--                  <a href="https://github.com/xzhang-t/DNF"-->
+<!--                    class="external-link button is-normal is-rounded is-dark">-->
+<!--                    <span class="icon">-->
+<!--                      <i class="fab fa-github"></i>-->
+<!--                    </span>-->
+<!--                    <span>Code</span>-->
+<!--                  </a>-->
               </div>
 
             </div>
@@ -223,7 +225,7 @@
             <source src="./static/video/Teaser.mp4" type="video/mp4">
           </video>
           <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
-            We propose DNF, a dictionary-based representation for the unconditional generation of 4D deforming shapes, with a transformer-based diffusion model. Our method is capable of generating motions with superior shape quality and temporal consistency.
+            We present ProcGen3D, which reconstructs 3D objects from RGB images by synthesizing compact procedural graph abstractions, enabling generation of high-fidelity 3D assets.
           </h2>
         </div>
       </div>
@@ -323,12 +325,12 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              While remarkable success has been achived through diffusion-based 3D generative models for shapes, 4D generative modeling remains challenging due to the complexity of object deformations over time. 
-We propose DNF, a new 4D representation for unconditional generative modeling that efficiently models deformable shapes with disentangled shape and motion while capturing high-fidelity details in the deforming objects. 
-To achieve this, we propose a dictionary learning approach to disentangle 4D motion from shape as neural fields.
-Both shape and motion are represented as learned latent spaces, where each deformable shape is represented by its shape and motion global latent codes, shape-specific coefficient vectors, and shared dictionary information. 
-This captures both shape-specific detail and global shared information in the learned dictionary. 
-Our dictionary-based representation well balances fidelity, contiguity and compression -- combined with a transformer-based diffusion model, our method is able to generate effective, high-fidelity 4D animations. 
+              We introduce ProcGen3D, a new approach for 3D content creation by generating procedural graph abstractions of 3D objects, which can then be decoded into rich, complex 3D assets.
+              Inspired by the prevalent use of procedural generators in production 3D applications, we propose a sequentialized, graph-based procedural graph representation for 3D assets.
+              We use this to learn to approximate the landscape of a procedural generator for image-based 3D reconstruction. We employ edge-based tokenization to encode the procedural graphs, and train a transformer prior to predict the next token conditioned on an input RGB image.
+              Crucially, to enable better alignment of our generated outputs to an input image, we incorporate Monte Carlo Tree Search (MCTS) guided sampling into our generation process, steering output procedural graphs towards more image-faithful reconstructions. Our approach is applicable across a variety of objects that can be synthesized with procedural generators.
+              Extensive experiments on cacti, trees, and bridges show that our neural procedural graph generation outperforms both state-of-the-art generative 3D methods and domain-specific modeling techniques.
+              Furthermore, this enables improved generalization on real-world input images, despite training only on synthetic data.
             </p>
           </div>
         </div>
@@ -340,7 +342,7 @@ Our dictionary-based representation well balances fidelity, contiguity and compr
         <div class="column is-four-fifths">
           <h2 class="title is-3">Video</h2>
           <div class="publication-video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/l1UhJmTbKIo?si=L3HQoSZNh1LgMTLJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
         </div>
         <!--/ Paper video. -->
@@ -352,31 +354,28 @@ Our dictionary-based representation well balances fidelity, contiguity and compr
       <h2 class="title is-3">Overview</h2>
       <div class="publication-video">
       <video id="represent" autoplay muted loop playsinline height="100%">
-            <source src="./static/video/rep.mp4" type="video/mp4">
+            <source src="./static/video/overview.mp4" type="video/mp4">
           </video>
       </div>
       
 
       <div class="content has-text-justified">
         <p>
-          We first pre-train disentangled shape and motion MLPs with per-instance latents. 
-    We then decompose the pre-trained MLPs using SVD to conduct dictionary-based fine-tuning of the singular values for each train instance, 
-            in order to more expressively capture local object detail. We then obtain for each train instance its latent shape and motion codes as well as coefficient vectors, 
-            along with a globally shared dictionary. This effectively balances quality, contiguity and compression in the learned representation space. 
+          ProcGen3D enables high-fidelity image-to-3D reconstruction across diverse categories of procedurally generated objects by developing a sequentialized, graph-based representation.Using an autoregressive transformer, we predict a procedural graph from an input image, which is then decoded by a procedural generator into a high-fidelity 3D asset.
         </p>
 
       </div>
 
       <div class="publication-video">
       <video id="represent" autoplay muted loop playsinline height="100%">
-            <source src="./static/video/diff.mp4" type="video/mp4">
+            <source src="./static/video/pipeline.mp4" type="video/mp4">
           </video>
       </div>
 
       <div class="content has-text-justified">
         <p>
-          Training and generation of our DNF for unconditional 4D synthesis.
-    We employ transformer-based diffusion models to model the \(\boldsymbol{\sigma}\) that modulate the shape and motion MLPs, along with shape and motion codes. At inference time, new samples can then be decoded to shape and motion to form a 4D deforming sequence.
+          We adopt a GPT-style transformer to model procedural graph generation. Each graph is sequentialized into edge-based tokens, where each token encodes the spatial positions of its two endpoint vertices, along with their corresponding attributes and the attributes of the edge itself.
+          The transformer is trained autoregressively for next-token prediction, conditioned on the input RGB image. To better align the predicted graph to the input condition, we introduce a Monte Carlo Tree Search (MCTS)–guided sampling into our inference process.
         </p>
 
       </div>
@@ -389,10 +388,10 @@ Our dictionary-based representation well balances fidelity, contiguity and compr
     <div class="container is-max-desktop has-text-centered">
 
       <!-- Scene Completion. -->
-      <h2 class="title is-3">Unconditional Motion Generation</h2>
+      <h2 class="title is-3">Gallery of real-world reconstructions with procedural graphs</h2>
       <div class="publication-video">
       <video id="represent" autoplay muted loop playsinline height="70%">
-            <source src="./static/video/compare.mp4" type="video/mp4">
+            <source src="./static/video/gallery.mp4" type="video/mp4">
           </video>
       </div>
     </div>
@@ -400,29 +399,29 @@ Our dictionary-based representation well balances fidelity, contiguity and compr
 
     
 
-  <section class="section">
-    <div class="container is-max-desktop has-text-centered">
-      <h2 class="title is-3">Generation for Unseen Species</h2>
-       <div class="publication-video">
-      <video id="represent" autoplay muted loop playsinline height="70%">
-            <source src="./static/video/unseen.mp4" type="video/mp4">
-          </video>
-      </div>
-    </div>
-  </section>
+<!--  <section class="section">-->
+<!--    <div class="container is-max-desktop has-text-centered">-->
+<!--      <h2 class="title is-3">Generation for Unseen Species</h2>-->
+<!--       <div class="publication-video">-->
+<!--      <video id="represent" autoplay muted loop playsinline height="70%">-->
+<!--            <source src="./static/video/unseen.mp4" type="video/mp4">-->
+<!--          </video>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
 
 
 <section class="section">
     <div class="container is-max-desktop has-text-centered">
-      <h2 class="title is-3">More Results</h2>
+      <h2 class="title is-3">3D Reconstruction from Real-world Images </h2>
       <div class="publication-video">
       <video id="represent" autoplay muted loop playsinline height="70%">
-            <source src="./static/video/result1.mp4" type="video/mp4">
+            <source src="./static/video/real_world.mp4" type="video/mp4">
           </video>
       </div>
       <div class="publication-video">
       <video id="represent" autoplay muted loop playsinline height="70%">
-            <source src="./static/video/result2.mp4" type="video/mp4">
+            <source src="./static/video/real_tree.mp4" type="video/mp4">
           </video>
       </div>
 
@@ -434,14 +433,7 @@ Our dictionary-based representation well balances fidelity, contiguity and compr
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@misc{zhang2024dnfunconditional4dgeneration,
-      title={DNF: Unconditional 4D Generation with Dictionary-based Neural Fields}, 
-      author={Xinyi Zhang and Naiqi Li and Angela Dai},
-      year={2024},
-      eprint={2412.05161},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2412.05161}, 
+      <pre><code>  
   }</code></pre>
     </div>
   </section>
